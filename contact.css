@@ -1,0 +1,146 @@
+/* Contact page section styling (matched to Volunteer.css) */
+.contact-section {
+    background-color: #cfd78c;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 80px 20px;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Master inner container keeping elements structured neatly */
+.contact-container {
+    max-width: 780px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Typography alignment and spacing rules */
+.contact-header {
+    text-align: center;
+    color: #700143;
+    /* Dark plum shade */
+    margin-bottom: 40px;
+    max-width: 680px;
+}
+
+.contact-header h2 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+/* Italicized highlight option matching your screenshot layout choice */
+.contact-header h2 span {
+    font-style: italic;
+    font-weight: 700;
+}
+
+.contact-header p {
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* The transparent tinted form layout box container */
+.contact-form {
+    width: 900px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    padding: 45px 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Form block control grouping elements */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #700143;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+/* Smooth custom styled input field states */
+.form-group input {
+    width: 100%;
+    padding: 14px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #700143;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Smooth textarea styling matching inputs */
+.form-group textarea {
+    width: 100%;
+    padding: 14px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #700143;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    resize: vertical;
+}
+
+/* Soft styling highlight on click/focus input state indicators */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #700143;
+    box-shadow: 0 0 0 3px rgba(80, 2, 36, 0.15);
+}
+
+/* Placeholder font color control adjustments */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #bfa1b0;
+    opacity: 0.7;
+}
+
+/* The Submission action pill wrapper style block layout choice */
+.contact-submit-btn {
+    align-self: center;
+    margin-top: 20px;
+    background-color: #e59bbd;
+    color: #500224;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 14px 45px;
+    border: 2px solid #ffffff;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 10px rgba(80, 2, 36, 0.08);
+}
+
+.contact-submit-btn:hover {
+    background-color: #700143;
+    color: #ffffff;
+    border-color: #700143;
+    transform: translateY(-2px);
+}

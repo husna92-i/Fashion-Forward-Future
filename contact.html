@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Fashion Forward Future</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="contact.css" />
+    <link rel="stylesheet" href="navbar.css" />
+</head>
+
+<body>
+    <nav id="navbar">
+        <a href="#home" class="nav-logo">
+            <img src="img/logo.PNG" alt="Logo" style="height: 40px; width: auto;">
+            <div class="logo-text">
+                <span>Fashion Forward Future</span>
+            </div>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="Volunteer.html">Volunteer Portal</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+        </ul>
+
+        <div class="nav-icons">
+            <button class="icon-btn" id="searchBtn" aria-label="Search">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="M21 21l-4.35-4.35" />
+                </svg>
+            </button>
+            <button class="icon-btn hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M3 6h18M3 12h18M3 18h18" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#volunteer">Volunteer Portal</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#newsletter">Newsletter</a>
+    </div>
+
+    <!-- SEARCH OVERLAY -->
+    <div class="search-overlay" id="searchOverlay">
+        <button class="search-close" id="searchClose">✕</button>
+        <div class="search-inner">
+            <label>Quick Search</label>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search events, volunteers, gallery…" />
+                <button>
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="M21 21l-4.35-4.35" />
+                    </svg>
+                </button>
+            </div>
+            <div class="search-suggestions">
+                <span>Try:</span>
+                <div class="search-tag">Events</div>
+                <div class="search-tag">Volunteer</div>
+                <div class="search-tag">Gallery</div>
+                <div class="search-tag">Sustainable Fashion</div>
+                <div class="search-tag">B40 Community</div>
+                <div class="search-tag">Contact Us</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-header">
+                <h2>CONTACT <span>US</span></h2>
+                <p>Send us your message and we’ll get back to you as soon as possible.</p>
+            </div>
+
+            <form class="contact-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="contact-name">Name</label>
+                    <input type="text" id="contact-name" name="name" placeholder="Your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-email">Email</label>
+                    <input type="email" id="contact-email" name="email" placeholder="Your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-message">Message</label>
+                    <textarea id="contact-message" name="message" rows="6" placeholder="Write your message..."
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="contact-submit-btn">SEND MESSAGE</button>
+            </form>
+        </div>
+    </section>
+
+    <script type="module" src="contact.js"></script>
+    <script src="script.js"></script>
+    <script src="navbar.js"></script>
+</body>
+
+</html>
