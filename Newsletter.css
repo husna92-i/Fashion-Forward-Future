@@ -1,0 +1,117 @@
+.Newsletter-section{
+    background-color: #cfd78c; 
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 20px 20px;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.Newsletter-container {
+  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Newsletter-header {
+  text-align: center;
+  color: #700143; /* Dark plum shade */
+  margin-bottom: 40px;
+  max-width: 800px;
+}
+
+.Newsletter-header h1 {
+font-family: 'Source Serif 4', serif;
+  font-size: 4.5rem;
+  font-weight: 800;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.Newsletter-header p {
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 2.0;
+  margin: 0;
+}
+
+.newsletter-form {
+  width: 900px;
+  max-width: 950px;
+  background-color: rgba(255, 255, 255, 0.15); 
+  border: 1px solid rgba(255, 255, 255, 0.4);   
+  border-radius: 12px;
+  padding: 45px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: #700143;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #700143;
+  font-family: 'Poppins', sans-serif;
+  font-size:1rem;
+  box-sizing: border-box;
+  outline: none;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Soft styling highlight on click/focus input state indicators */
+.form-group input:focus {
+  border-color: #700143;
+  box-shadow: 0 0 0 3px rgba(80, 2, 36, 0.15);
+}
+
+/* Placeholder font color control adjustments */
+.form-group input::placeholder {
+  color: #bfa1b0;
+  opacity: 0.7;
+}
+
+/* The Submission action pill wrapper style block layout choice */
+.subscribe-button {
+  align-self: center;        /* Centers button relative inside its form card wrapper width */
+  margin-top: 20px;
+  background-color: #e59bbd; /* Matching signature soft pink asset color string */
+  color: #500224;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 14px 45px;
+  border: 2px solid #ffffff; /* Contrast clean edge perimeter line overlay look */
+  border-radius: 50px;       /* Keeps it perfectly rounded into a soft pill shape */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 10px rgba(80, 2, 36, 0.08);
+}
+
+.subscribe-button:hover {
+  background-color: #700143;
+  color: #ffffff;
+  border-color: #700143;
+  transform: translateY(-2px); /* Gives it an elegant interactive click preview animation elevation */
+}
