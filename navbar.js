@@ -49,9 +49,9 @@ function handleSearchRouting(searchTerm) {
     window.location.href = 'Newsletter.html';
   } else if (term.includes('gallery')) {
     window.location.href = 'Gallery.html';
-  } else if (term.includes('about')) {
+  } else if (term.includes('about') || term.includes('b40')) {
     window.location.href = 'index.html#about';
-  } else if (term.includes('home') || term.includes('event') || term.includes('fashion') || term.includes('b40') ) {
+  } else if (term.includes('home') || term.includes('event') || term.includes('fashion')) {
     window.location.href = 'index.html#home';
   } else {
     alert(`No structural page found matching "${searchTerm}". Try clicking one of the suggested tags.`);
