@@ -663,10 +663,10 @@ nav.scrolled {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--yellow);
+  background: rgb(232, 232, 154);
   backdrop-filter: blur(12px);
   border-radius: 50%;
-  border: 1px solid var(--pink);
+  border: 2px solid var(--pink);
   font-weight: bold;
   font-size: 1rem;
   margin-left: -15px;
@@ -694,7 +694,7 @@ nav.scrolled {
   gap: 1rem;
 }
 
-.about-stat-circle {
+/*.about-stat-circle {
   width: 40px;
   height: 40px;
   display: flex;
@@ -707,7 +707,7 @@ nav.scrolled {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   flex-shrink: 0;
-}
+} */
 
 .about-stat-circle:hover {
   transform: scale(1.05);
