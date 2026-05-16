@@ -785,7 +785,9 @@ nav.scrolled {
 }
 
 .footer-content {
-  display: grid;
+  display: flex; /*updated 16.5.26 */
+  justify-content: space-between; /*updated 16.5.26 */
+  align-items: center;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-bottom: 2rem;
@@ -841,6 +843,7 @@ nav.scrolled {
 }
 
 .footer-social {
+  margin-left:auto; /*updated 16.5.26 */
   text-align: right !important;
 }
 
