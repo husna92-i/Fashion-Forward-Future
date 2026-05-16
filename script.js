@@ -132,3 +132,65 @@ function setActiveNavOnScroll() {
 if (document.querySelectorAll('section[id]').length > 0) {
   setActiveNavOnScroll();
 }
+
+// =========================================================================
+//========= CENTRALIZED SEARCH ROUTING ENGINE ONLY  ===========
+// =========================================================================
+
+// Select search-specific elements from the DOM
+
+const searchSubmit  = document.querySelector('.search-bar button');
+
+/**
+ * Inspects text keywords and redirects the window location to matching HTML sub-pages
+ * @param {string} searchTerm - The string inputted by the user or text from a clicked tag
+ */
+function handleSearchRouting(searchTerm) {
+  const term = searchTerm.toLowerCase().trim();
+  if (term === '') return;
+
+  if (term.includes('volunteer') || term.includes('crew') || term.includes('b40')) {
+    window.location.href = 'Volunteer.html';
+  } else if (term.includes('contact')) {
+    window.location.href = 'contact.html';
+  } else if (term.includes('newsletter') || term.includes('subscribe')) {
+    window.location.href = 'Newsletter.html';
+  } else if (term.includes('gallery')) {
+    window.location.href = 'Gallery.html';
+  } else if (term.includes('about')) {
+    window.location.href = 'index.html#about';
+  } else if (term.includes('home') || term.includes('event') || term.includes('fashion')) {
+    window.location.href = 'index.html#home';
+  } else {
+    alert(`No structural page found matching "${searchTerm}". Try clicking one of the suggested tags.`);
+  }
+}
+
+// Bind Routing Engine to Interactive Search Tags Click
+document.querySelectorAll('.search-tag').forEach(tag => {
+  tag.addEventListener('click', () => {
+    const chosenTag = tag.textContent;
+    if (searchInput) searchInput.value = chosenTag;
+    
+    // Smooth delay so the user physically sees the tag text fill the bar before navigation redirects
+    setTimeout(() => {
+      handleSearchRouting(chosenTag);
+    }, 200);
+  });
+});
+
+// Bind Routing Engine to the Search Button Click inside overlay bar
+if (searchSubmit && searchInput) {
+  searchSubmit.addEventListener('click', () => {
+    handleSearchRouting(searchInput.value);
+  });
+}
+
+// Bind Routing Engine to pressing 'Enter' inside the text Input box
+if (searchInput) {
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      handleSearchRouting(searchInput.value);
+    }
+  });
+}
