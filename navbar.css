@@ -1,0 +1,232 @@
+:root {
+  --pink: #F994C0;
+  --yellow: #D5D08C;
+  --purple: #700143;
+  --white: #FFFFFF;
+  --offwhite: #FFF5F9;
+  --dark: #1a0010;
+}
+
+/* NAVBAR */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 68px;
+  background: rgb(213, 208, 140);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(249, 148, 192, 0.25);
+  transition: background 0.3s;
+}
+
+nav.scrolled {
+  background: rgb(249, 148, 192);
+  box-shadow: 0 2px 20px rgba(112, 1, 67, 0.08);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.logo-text span:first-child {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--purple);
+  letter-spacing: -0.2px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--purple);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--black);
+}
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--purple);
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: var(--black);
+}
+
+.icon-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hamburger-btn {
+  display: flex;
+}
+
+/* MOBILE NAV */
+.mobile-nav {
+  position: fixed;
+  top: 68px;
+  right: 0;
+  width: 260px;
+  height: calc(100vh - 68px);
+  background: rgba(255, 245, 249, 0.97);
+  backdrop-filter: blur(20px);
+  transform: translateX(110%);
+  transition: transform 0.35s;
+  z-index: 900;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+.mobile-nav a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--purple);
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(249, 148, 192, 0.15);
+}
+
+/* SEARCH OVERLAY */
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(26, 0, 16, 0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.search-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.search-inner {
+  width: 90%;
+  max-width: 600px;
+  transform: translateY(20px);
+  transition: transform 0.3s;
+}
+
+.search-overlay.active .search-inner {
+  transform: translateY(0);
+}
+
+.search-inner label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 0.8rem;
+}
+
+.search-bar {
+  display: flex;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(249, 148, 192, 0.4);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+
+.search-bar input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0.9rem 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.search-bar input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.search-bar button {
+  padding: 0.9rem 1.2rem;
+  background: var(--pink);
+  border: none;
+  cursor: pointer;
+  color: var(--purple);
+}
+
+.search-suggestions {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.search-tag {
+  padding: 0.3rem 0.8rem;
+  border: 1px solid rgba(249, 148, 192, 0.3);
+  border-radius: 20px;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+
+.search-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-size: 1.4rem;
+}

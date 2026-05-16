@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our legacy</title>
+    <link rel="stylesheet" href="passEvents.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="volunteer.css">
+    
+</head>
+
+<body>
+    <nav id="navbar">
+  <a href="#home" class="nav-logo">
+    <img src="FFFLogo.PNG" alt="Logo" style="height: 40px; width: auto;">
+    <div class="logo-text">
+      <span>Fashion Forward Future</span>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#volunteer">Volunteer Portal</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+    <li><a href="#newsletter">Newsletter</a></li>
+  </ul>
+
+  <div class="nav-icons">
+    <button class="icon-btn" id="searchBtn" aria-label="Search">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/>
+      </svg>
+    </button>
+    <button class="icon-btn hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#home">Home</a>
+  <a href="#about">About Us</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#volunteer">Volunteer Portal</a>
+  <a href="#contact">Contact Us</a>
+  <a href="#newsletter">Newsletter</a>
+</div>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay">
+  <button class="search-close" id="searchClose">✕</button>
+  <div class="search-inner">
+    <label>Quick Search</label>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search events, volunteers, gallery…" />
+      <button>
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-suggestions">
+      <span>Try:</span>
+      <div class="search-tag">Events</div>
+      <div class="search-tag">Volunteer</div>
+      <div class="search-tag">Gallery</div>
+      <div class="search-tag">Sustainable Fashion</div>
+      <div class="search-tag">B40 Community</div>
+      <div class="search-tag">Contact Us</div>
+    </div>
+  </div>
+</div>
+
+    <section class="volunteer-section" id="volunteer">
+    <div class="volunteer-container">
+        
+        <div class="volunteer-header">
+            <h2>LET'S MAKE AN <span>IMPACT</span> WITH US</h2>
+            <p>Drop your details below for a chance to join our crew. Our team reviews every application—if you’re a match for the movement, you’ll hear from us in your inbox!</p>
+        </div>
+
+        <form class="volunteer-form" action="#" method="POST">
+            <div class="form-group">
+                <label for="volunteer-name">Name</label>
+                <input type="text" id="volunteer-name" name="name" placeholder="Name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="volunteer-email">Email</label>
+                <input type="email" id="volunteer-email" name="email" placeholder="Email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="volunteer-portfolio">Portfolio</label>
+                <input type="url" id="volunteer-portfolio" name="portfolio" placeholder="Insert Your Portfolio Link Here">
+            </div>
+
+            <button type="submit" class="volunteer-submit-btn">BECOME VOLUNTEER</button>
+        </form>
+
+    </div>
+</section>
+
+    <script src="navbar.js"></script>
+
+</body>
+</html>
