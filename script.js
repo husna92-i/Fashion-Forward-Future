@@ -149,7 +149,7 @@ function handleSearchRouting(searchTerm) {
   const term = searchTerm.toLowerCase().trim();
   if (term === '') return;
 
-  if (term.includes('volunteer') || term.includes('crew') || term.includes('b40')) {
+  if (term.includes('volunteer') || term.includes('crew')) {
     window.location.href = 'Volunteer.html';
   } else if (term.includes('contact')) {
     window.location.href = 'contact.html';
@@ -157,7 +157,7 @@ function handleSearchRouting(searchTerm) {
     window.location.href = 'Newsletter.html';
   } else if (term.includes('gallery')) {
     window.location.href = 'Gallery.html';
-  } else if (term.includes('about')) {
+  } else if (term.includes('about') || term.includes('b40')) {
     window.location.href = 'index.html#about';
   } else if (term.includes('home') || term.includes('event') || term.includes('fashion')) {
     window.location.href = 'index.html#home';
