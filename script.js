@@ -14,6 +14,39 @@ if (hamburgerBtn && mobileNav) {
   });
 }
 
+// Search overlay
+const searchBtn = document.getElementById('searchBtn');
+const searchOverlay = document.getElementById('searchOverlay');
+const searchClose = document.getElementById('searchClose');
+const searchInput = document.getElementById('searchInput');
+
+if (searchBtn && searchOverlay) {
+  searchBtn.addEventListener('click', () => {
+    searchOverlay.classList.add('active');
+    setTimeout(() => searchInput?.focus(), 300);
+  });
+
+  searchClose?.addEventListener('click', () => searchOverlay.classList.remove('active'));
+
+  searchOverlay.addEventListener('click', (e) => {
+    if (e.target === searchOverlay) searchOverlay.classList.remove('active');
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') searchOverlay.classList.remove('active');
+  });
+
+  // Search tags
+  document.querySelectorAll('.search-tag').forEach(tag => {
+    tag.addEventListener('click', () => {
+      if (searchInput) {
+        searchInput.value = tag.textContent;
+        searchInput.focus();
+      }
+    });
+  });
+}
+
 // Looping Typewriter Effect
 const text = 'Wear the <em>change</em><br/>you want to see';
 let index = 0;
