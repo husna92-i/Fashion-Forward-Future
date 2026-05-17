@@ -1,62 +1,59 @@
-/* Container section matching your beautiful light olive palette background */
-body {
-  font-family: 'Poppins', sans-serif;
-}
+/* Container section */
 .volunteer-section {
   background-color: #cfd78c; 
   min-height: 100vh;
   box-sizing: border-box;
-  padding: 80px 20px;
+  padding: 120px 20px 60px;
   font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Master inner container keeping elements structured neatly */
+/* Master inner container */
 .volunteer-container {
-  max-width: 780px;
+  max-width: 900px; 
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Typography alignment and spacing rules */
+/* Typography alignment */
 .volunteer-header {
   text-align: center;
-  color: #700143; /* Dark plum shade */
+  color: #700143;
   margin-bottom: 40px;
-  max-width: 680px;
+  max-width: 100%;  /* CHANGED from 680px to 100% */
+  width: 100%;
 }
 
 .volunteer-header h2 {
-  font-size: 4.5rem;
+  font-size: 3.5rem;  /* SLIGHTLY SMALLER to fit better */
   font-weight: 800;
   margin: 0 0 20px 0;
   text-transform: uppercase;
   letter-spacing: -0.5px;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
-/* Italicized 'IMPACT' keyword option matching your screenshot layout choice */
 .volunteer-header h2 span {
   font-style: italic;
   font-weight: 700;
 }
 
 .volunteer-header p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.5;
   margin: 0;
 }
 
-/* The transparent tinted form layout box container */
+/* Form container - WIDER */
 .volunteer-form {
-  width: 900px;
-  background-color: rgba(255, 255, 255, 0.15); /* Soft background overlay tint tint */
-  border: 1px solid rgba(255, 255, 255, 0.4);   /* Semi-transparent elegant thin border line */
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 12px;
   padding: 45px 40px;
   box-sizing: border-box;
@@ -65,7 +62,7 @@ body {
   gap: 25px;
 }
 
-/* Form block control grouping elements */
+/* Form group */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -75,10 +72,10 @@ body {
 .form-group label {
   color: #700143;
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
-/* Smooth custom styled input pill field states */
+/* Input fields */
 .form-group input {
   width: 100%;
   padding: 14px 20px;
@@ -87,44 +84,92 @@ body {
   background-color: #ffffff;
   color: #700143;
   font-family: 'Poppins', sans-serif;
-  font-size:1rem;
+  font-size: 1rem;
   box-sizing: border-box;
   outline: none;
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-/* Soft styling highlight on click/focus input state indicators */
 .form-group input:focus {
   border-color: #700143;
   box-shadow: 0 0 0 3px rgba(80, 2, 36, 0.15);
 }
 
-/* Placeholder font color control adjustments */
 .form-group input::placeholder {
   color: #bfa1b0;
   opacity: 0.7;
 }
 
-/* The Submission action pill wrapper style block layout choice */
+/* Submit button */
 .volunteer-submit-btn {
-  align-self: center;        /* Centers button relative inside its form card wrapper width */
-  margin-top: 20px;
-  background-color: #e59bbd; /* Matching signature soft pink asset color string */
-  color: #500224;
+  width: 100%;
+  background: var(--pink);
+  color: #fff;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 12px;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.5rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  padding: 14px 45px;
-  border: 2px solid #ffffff; /* Contrast clean edge perimeter line overlay look */
-  border-radius: 50px;       /* Keeps it perfectly rounded into a soft pill shape */
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0 4px 10px rgba(80, 2, 36, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  box-shadow: 0 4px 20px rgba(249,148,192,0.4);
+  margin-top: 0.5rem;
 }
 
 .volunteer-submit-btn:hover {
-  background-color: #700143;
-  color: #ffffff;
-  border-color: #700143;
-  transform: translateY(-2px); /* Gives it an elegant interactive click preview animation elevation */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(249,148,192,0.6);
+  background: #f77db4;
+}
+
+/* Remove any body margins that might cause gaps */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .volunteer-section {
+    padding: 100px 15px 40px;
+  }
+  
+  .volunteer-container {
+    max-width: 100%;
+  }
+  
+  .volunteer-header h2 {
+    font-size: 2rem;
+  }
+  
+  .volunteer-header p {
+    font-size: 1rem;
+  }
+  
+  .volunteer-form {
+    padding: 30px 20px;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+  }
+  
+  .volunteer-submit-btn {
+    font-size: 1rem;
+    padding: 12px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .volunteer-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .volunteer-submit-btn {
+    font-size: 0.9rem;
+    padding: 10px 25px;
+  }
 }
