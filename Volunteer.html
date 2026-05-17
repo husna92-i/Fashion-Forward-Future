@@ -85,7 +85,7 @@
         
         <div class="volunteer-header">
             <h2>LET'S MAKE AN <span>IMPACT</span><br>WITH US</h2>
-            <p>Drop your details below for a chance to join our crew. Our team reviews every application—if you’re a match for the movement, you’ll hear from us in your inbox!</p>
+            <p>Drop your details below for a chance to join our crew. Our team reviews every application—if you're a match for the movement, you'll hear from us in your inbox!</p>
         </div>
 
         <form class="volunteer-form" action="#" method="POST">
@@ -110,14 +110,11 @@
     </div>
 </section>
 
-    <script type="module" src="Volunteer.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init({
-        publicKey: "p06KXO_A0MQtiMuM2",
-   })();
-</script>
+    <script type="text/javascript">
+       emailjs.init("p06KXO_A0MQtiMuM2");
+    </script>
+    <script type="module" src="Volunteer.js"></script>
 
 </body>
 </html>
