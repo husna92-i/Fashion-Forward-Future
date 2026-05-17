@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // Sends data to your EmailJS Dashboard using your account credentials
-        await emailjs.send('YOUR_SERVICE_ID', 'YOUR_VOLUNTEER_TEMPLATE_ID', emailParams);
+        await emailjs.send('service_i0yt9mb', 'template_updbgkn', emailParams);
 
         alert("Thank you for applying! Your details have been submitted and email notification sent.");
 
