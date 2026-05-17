@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
 
                 // Dispatch EmailJS request with your Account Credentials
-                await emailjs.send('YOUR_SERVICE_ID', 'YOUR_CONTACT_TEMPLATE_ID', emailParams);
+                await emailjs.send('service_i0yt9mb', 'template_s7015di', emailParams);
 
                 alert("Thank you! Your message has been submitted and email notification sent.");
                 
