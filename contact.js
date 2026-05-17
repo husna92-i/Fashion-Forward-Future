@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Dispatch EmailJS request with your Account Credentials
                 await emailjs.send('service_i0yt9mb', 'template_s7015di', emailParams);
 
-                alert("Thank you! Your message has been submitted and email notification sent.");
+                alert("Thank you! Your message has been submitted!");
                 
                 // Clear the form input fields
                 form.reset(); 
