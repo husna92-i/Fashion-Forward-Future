@@ -1,4 +1,7 @@
 /* Container section matching your beautiful light olive palette background */
+body {
+  font-family: 'Poppins', sans-serif;
+}
 .volunteer-section {
   background-color: #cfd78c; 
   min-height: 100vh;
