@@ -20,7 +20,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // =========================================================================
-//                      DOM CONTENT LOADED EVENT
+//                     DOM CONTENT LOADED EVENT
 // =========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 4. VOLUNTEER FORM SUBMISSION & FIREBASE INTEGRATION ---
+  // --- 4. VOLUNTEER FORM SUBMISSION & FIREBASE + EMAILJS INTEGRATION ---
   const volunteerForm = document.querySelector('.volunteer-form');
 
   if (volunteerForm) {
@@ -90,6 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const volunteerName = document.getElementById("volunteer-name").value;
       const volunteerEmail = document.getElementById("volunteer-email").value;
       const volunteerPortfolio = document.getElementById("volunteer-portfolio").value;
+      
+      // Formatting fallback string and submission timestamp for readability
+      const portfolioContent = volunteerPortfolio || "No portfolio provided";
+      const submissionTimeStr = new Date().toLocaleString();
 
       // Simple visual feedback on the button
       const submitBtn = volunteerForm.querySelector(".volunteer-submit-btn");
@@ -98,21 +102,33 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.disabled = true;
 
       try {
-        // Add a new document with a generated ID to Firestore "volunteers" collection
+        // A. Add a new document with a generated ID to Firestore "volunteers" collection
         const docRef = await addDoc(collection(db, "volunteers"), {
           name: volunteerName,
           email: volunteerEmail,
-          portfolio: volunteerPortfolio || "No portfolio provided",
+          portfolio: portfolioContent,
           submittedAt: new Date()
         });
 
         console.log("Document successfully written with ID: ", docRef.id);
-        alert("Thank you for applying! Your details have been submitted successfully.");
+
+        // B. EmailJS integration workflow
+        const emailParams = {
+          volunteer_name: volunteerName,
+          volunteer_email: volunteerEmail,
+          volunteer_portfolio: portfolioContent,
+          submission_time: submissionTimeStr
+        };
+
+        // Sends data to your EmailJS Dashboard using your account credentials
+        await emailjs.send('YOUR_SERVICE_ID', 'YOUR_VOLUNTEER_TEMPLATE_ID', emailParams);
+
+        alert("Thank you for applying! Your details have been submitted and email notification sent.");
 
         // Clear the form input fields
         volunteerForm.reset();
       } catch (error) {
-        console.error("Error adding document: ", error);
+        console.error("Error during form submission process: ", error);
         alert("Something went wrong. Please try again later.");
       } finally {
         // Restore the button state
