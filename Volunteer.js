@@ -1,6 +1,26 @@
+// =========================================================================
+//                   FIREBASE INITIALIZATION & CONFIGURATION
+// =========================================================================
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyB7ax-Re_pr2mRJFAbLiFCLnHUOU8Babtk",
+    authDomain: "fashionforwardfuture-20fa7.firebaseapp.com",
+    projectId: "fashionforwardfuture-20fa7",
+    storageBucket: "fashionforwardfuture-20fa7.firebasestorage.app",
+    messagingSenderId: "1487409101",
+    appId: "1:1487409101:web:8b18e370806221a0d7be84"
+};
+
+// Initialize Firebase and Firestore database
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 // =========================================================================
-//                      FASHION FORWARD FUTURE - CORE SCRIPT
+//                      DOM CONTENT LOADED EVENT
 // =========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -59,38 +79,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 4. VOLUNTEER FORM SUBMISSION & SUCCESS MODAL POPUP ---
+  // --- 4. VOLUNTEER FORM SUBMISSION & FIREBASE INTEGRATION ---
   const volunteerForm = document.querySelector('.volunteer-form');
-  const successModal  = document.getElementById('successModal');
-  const modalHomeBtn  = document.getElementById('modalHomeBtn');
 
-  if (volunteerForm && successModal) {
-    volunteerForm.addEventListener('submit', (e) => {
-      e.preventDefault(); // Stop default browser reload processing loops
+  if (volunteerForm) {
+    volunteerForm.addEventListener('submit', async (e) => {
+      e.preventDefault(); // Prevents the browser from reloading the page
 
-      const submitBtn = volunteerForm.querySelector('.volunteer-submit-btn');
-      submitBtn.textContent = 'SUBMITTING...';
+      // Get the input values from the form IDs
+      const volunteerName = document.getElementById("volunteer-name").value;
+      const volunteerEmail = document.getElementById("volunteer-email").value;
+      const volunteerPortfolio = document.getElementById("volunteer-portfolio").value;
+
+      // Simple visual feedback on the button
+      const submitBtn = volunteerForm.querySelector(".volunteer-submit-btn");
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.textContent = "SUBMITTING...";
       submitBtn.disabled = true;
 
-      // Simulate submission network delay (1 second)
-      setTimeout(() => {
-        // 1. Open the beautiful purple notification modal smoothly!
-        successModal.classList.add('show-modal');
-        
-        // 2. Wipe the input text fields in the background
-        volunteerForm.reset();
-        
-        // 3. Reset the submit button back to normal
-        submitBtn.textContent = 'BECOME VOLUNTEER';
-        submitBtn.disabled = false;
-      }, 1000);
-    });
-  }
+      try {
+        // Add a new document with a generated ID to Firestore "volunteers" collection
+        const docRef = await addDoc(collection(db, "volunteers"), {
+          name: volunteerName,
+          email: volunteerEmail,
+          portfolio: volunteerPortfolio || "No portfolio provided",
+          submittedAt: new Date()
+        });
 
-  // Custom modal click listener to forward users back to the landing page
-  if (modalHomeBtn) {
-    modalHomeBtn.addEventListener('click', () => {
-      window.location.href = 'index.html'; // Points directly to your homepage
+        console.log("Document successfully written with ID: ", docRef.id);
+        alert("Thank you for applying! Your details have been submitted successfully.");
+
+        // Clear the form input fields
+        volunteerForm.reset();
+      } catch (error) {
+        console.error("Error adding document: ", error);
+        alert("Something went wrong. Please try again later.");
+      } finally {
+        // Restore the button state
+        submitBtn.textContent = originalBtnText;
+        submitBtn.disabled = false;
+      }
     });
   }
 
@@ -131,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Initialize scroll highligher if sections are present
+  // Initialize scroll highlighter if sections are present
   if (document.querySelectorAll('section[id]').length > 0) {
     setActiveNavOnScroll();
   }
