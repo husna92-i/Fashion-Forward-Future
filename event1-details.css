@@ -39,7 +39,7 @@ html, body {
 
 .event-text-panel h1 {
   font-family: 'Source Serif 4', serif;
-  font-size: 4.5rem;       /* Bold, editorial title statement display scale size */
+  font-size: 4rem;       /* Bold, editorial title statement display scale size */
   font-weight: 800;
   margin: 10px 0 25px 0;
   line-height: 1.05;
@@ -55,7 +55,7 @@ html, body {
 }
 
 .event-text-panel p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.7;        /* Spacious text spacing makes reading content very natural */
   margin: 0 0 20px 0;
