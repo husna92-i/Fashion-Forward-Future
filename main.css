@@ -839,6 +839,7 @@ nav.scrolled {
 /* Social Media Section */
 .footer-social h4 {
   font-size: 1rem;
+  font-style:italic;
   margin-bottom: 1rem;
   color: var(--pink);
 }
@@ -927,10 +928,7 @@ nav.scrolled {
   }
   
   .pillars-grid,
-  .about-content,
-  .gallery-grid,
-  .volunteer-container,
-  .contact-container,
+  .about-content
   .footer-content {
     grid-template-columns: 1fr;
   }
@@ -939,29 +937,13 @@ nav.scrolled {
   .section-header h2 {
     font-size: 1.8rem;
   }
-  
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-  
-  .newsletter-form {
-    flex-direction: column;
-  }
-  
-  .gallery-grid {
-    gap: 1rem;
-  }
-  
   .about-image {
     height: 250px;
   }
   
   .what-we-do,
-  .about-section,
-  .gallery-section,
-  .volunteer-section,
-  .contact-section,
-  .newsletter-section {
+  .about-section
+  {
     padding: 3rem 0;
   }
 }
