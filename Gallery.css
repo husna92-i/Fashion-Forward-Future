@@ -8,102 +8,192 @@ html, body {
   background-color: #cfd78c; 
   min-height: 100vh;
   box-sizing: border-box;
-  padding: 60px 20px;        
-  font-family: 'Poppins', sans-serif;
+  padding: 120px 20px 60px;         
+  font-family: 'Poppins', sans-serif; 
   color: #700143;    
-  
   display: flex;
-  flex-direction: column;   /* Stacks header above the events container */
-  align-items: center;       /* Snaps them perfectly to the middle line */
-     
+  flex-direction: column;
+  align-items: center;     
 }
 
 .passEvents-header {
   text-align: center; 
   max-width: 1000px;
   margin-bottom: 50px;
-  font-size: 70px;
-  
 }
 
+/* Title with star next to it */
 .passEvents-header h1 {
   font-family: 'Source Serif 4', serif;
   font-size: 70px;
   font-weight: 800;
   margin-bottom: 20px;
   color: #700143;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Star burst styling - sits next to the title */
+.star-burst {
+  width: 60px;
+  height: 60px;
+  animation: spin-slow 12s linear infinite;
+  display: inline-block;
+}
+
+/* Spinning animation */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
 }
 
 .passEvents-header p {
   font-size: 1.8rem;
   font-weight: 500;
   color: #700143;
+  text-align: center;
 }
+
 .passEvents-container {
   max-width: 1800px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 40px;
-
 }
 
-.passEvents-row{
+.passEvents-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 50px;
 }
+
 .passEvents-row .event-content h3 {
   font-size: 2.2rem;
   color: #700143;
   margin-bottom: 20px;
-  
-
 }
+
 .passEvents-row .event-content p {
   font-size: 1.3rem;
   color: #700143;
   margin-bottom: 20px;
-  text-align: justify; 
-  text-justify: inter-word; 
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.6;
 }
 
 .event-content {
   display: flex;
-  flex-direction: column;    /* Stacks the paragraph text above the button */
-  align-items: center;       /* THE FIX: Centers the button and text horizontally! */
-  text-align: center;        /* Centers the actual lines of text */
-  flex: 1;                   /* Ensures it takes up its fair share of space next to the image */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
 }
 
 .event-btn {
   display: inline-block;
-  background-color: #e59bbd; /* Soft pink shade from your design */
-  background: rgba(255, 255, 255, 0.2); 
-  backdrop-filter: blur(10px);
-  color: #700143;            /* Dark plum text color */
-  padding: 12px 30px;        /* Internal spacing: 12px top/bottom, 30px left/right */
-  border-radius: 80px;       /* High value locks it into a round pill shape */
-  text-decoration: none;     /* Strips away the default underline */
-  font-weight: 700;          /* Bold typography weight */
-  font-size: 1.5rem;
-  transition: background 0.2s ease; /* Smooth hover effect */
-  border: 1px solid rgba(255, 255, 255, 0.3);  /* Glass border */
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  color: #700143;
+  padding: 12px 30px;
+  border-radius: 80px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.event-image{
-  flex: 1;                 /* Takes up an even share of space */
-  max-width: 35%;          /* Shrinks the width slightly so the poster isn't huge */
+.event-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.event-image {
+  flex: 1;
+  max-width: 35%;
   display: flex;
-  justify-content: flex-start; /* Forces the image to anchor tightly to the left side */
-  
+  justify-content: flex-start;
 }
 
 .event-image img {
-  width: 100%;             /* Tells the image to fill the 35% box width */
-  height: auto;            /* Maintains original proportions so it doesn't look squished */
-  border-radius: 8px;      /* Optional: rounds the sharp poster corners slightly */
-  object-fit: contain;     /* Keeps the entire image cleanly visible inside its frame */
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .passEvents-section {
+    padding: 100px 20px 40px;
+  }
+  
+  .passEvents-header h1 {
+    font-size: 40px;
+    gap: 10px;
+  }
+  
+  .star-burst {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .passEvents-header p {
+    font-size: 1.2rem;
+  }
+  
+  .passEvents-row {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .event-image {
+    max-width: 80%;
+    justify-content: center;
+  }
+  
+  .passEvents-row .event-content p {
+    text-align: left;
+    font-size: 1rem;
+  }
+  
+  .passEvents-row .event-content h3 {
+    font-size: 1.6rem;
+  }
+  
+  .event-btn {
+    font-size: 1rem;
+    padding: 10px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .passEvents-header h1 {
+    font-size: 32px;
+  }
+  
+  .star-burst {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .passEvents-header p {
+    font-size: 1rem;
+  }
+  
+  .event-btn {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+  }
 }
