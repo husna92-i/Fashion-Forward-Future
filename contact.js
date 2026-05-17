@@ -1,4 +1,7 @@
-// 1. Import the specific Firebase and Firestore modules from the web CDN
+// =========================================================================
+//                   FIREBASE INITIALIZATION & CONFIGURATION
+// =========================================================================
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
@@ -16,7 +19,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// 2. Wait for the DOM to load, then select the HTML form element
+// =========================================================================
+//                     DOM CONTENT LOADED EVENT
+// =========================================================================
+
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".contact-form");
 
@@ -29,6 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const contactEmail = document.getElementById("contact-email").value;
             const contactMessage = document.getElementById("contact-message").value;
 
+            // Generate clean timestamp for your beautiful email layout
+            const submissionTimeStr = new Date().toLocaleString();
+
             // Simple visual feedback on the button
             const submitBtn = form.querySelector(".contact-submit-btn");
             const originalBtnText = submitBtn.textContent;
@@ -36,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
             submitBtn.disabled = true;
 
             try {
-                // 3. Add a new document with a generated ID to a collection named "contacts"
+                // A. Add a new document with a generated ID to a collection named "contacts"
                 const docRef = await addDoc(collection(db, "contacts"), {
                     name: contactName,
                     email: contactEmail,
@@ -44,13 +53,26 @@ document.addEventListener("DOMContentLoaded", () => {
                     submittedAt: new Date() // Tracking timestamps helps keep entries organized
                 });
 
-                console.log("Document successfully written with ID: ", docRef.id);
-                alert("Thank you! Your message has been submitted successfully.");
+                console.log("Document successfully written with ID: ", docRef.id); //
 
-                form.reset(); // Clear the form input fields
+                // B. EmailJS Integration parameters matching your color template variables
+                const emailParams = {
+                    contact_name: contactName,
+                    contact_email: contactEmail,
+                    contact_message: contactMessage,
+                    submission_time: submissionTimeStr
+                };
+
+                // Dispatch EmailJS request with your Account Credentials
+                await emailjs.send('YOUR_SERVICE_ID', 'YOUR_CONTACT_TEMPLATE_ID', emailParams);
+
+                alert("Thank you! Your message has been submitted and email notification sent.");
+                
+                // Clear the form input fields
+                form.reset(); 
             } catch (error) {
-                console.error("Error adding document: ", error);
-                alert("Something went wrong. Please try again later.");
+                console.error("Error during contact submission process: ", error); //
+                alert("Something went wrong. Please try again later."); //
             } finally {
                 // Restore the button state
                 submitBtn.textContent = originalBtnText;
@@ -59,4 +81,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
-
