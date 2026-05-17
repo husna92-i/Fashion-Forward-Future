@@ -7,6 +7,10 @@
   --dark: #1a0010;
 }
 
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
 /* NAVBAR */
 nav {
   position: fixed;
