@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Sends data to your EmailJS Dashboard using your account credentials
         await emailjs.send('service_i0yt9mb', 'template_updbgkn', emailParams);
 
-        alert("Thank you for applying! Your details have been submitted and email notification sent.");
+        alert("Thank you for applying! Your details have been submitted!");
 
         // Clear the form input fields
         volunteerForm.reset();
