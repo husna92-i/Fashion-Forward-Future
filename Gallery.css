@@ -1,0 +1,105 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.passEvents-section {
+  background-color: #cfd78c; 
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 60px 20px;        
+  font-family: 'Poppins', sans-serif; 
+  color: #700143;    
+  
+  display: flex;
+  flex-direction: column;   /* Stacks header above the events container */
+  align-items: center;       /* Snaps them perfectly to the middle line */
+     
+}
+
+.passEvents-header {
+  text-align: center; 
+  max-width: 1000px;
+  margin-bottom: 50px;
+  font-size: 70px;
+  
+}
+
+.passEvents-header h1 {
+  font-family: 'Source Serif 4', serif;
+  font-size: 70px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #700143;
+}
+
+.passEvents-header p {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #700143;
+}
+.passEvents-container {
+  max-width: 1800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+}
+
+.passEvents-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+.passEvents-row .event-content h3 {
+  font-size: 2.2rem;
+  color: #700143;
+  margin-bottom: 20px;
+  
+
+}
+.passEvents-row .event-content p {
+  font-size: 1.7rem;
+  color: #700143;
+  margin-bottom: 20px;
+  
+
+}
+
+.event-content {
+  display: flex;
+  flex-direction: column;    /* Stacks the paragraph text above the button */
+  align-items: center;       /* THE FIX: Centers the button and text horizontally! */
+  text-align: center;        /* Centers the actual lines of text */
+  flex: 1;                   /* Ensures it takes up its fair share of space next to the image */
+}
+
+.event-btn {
+  display: inline-block;
+  background-color: #e59bbd; /* Soft pink shade from your design */
+  color: #700143;            /* Dark plum text color */
+  padding: 12px 30px;        /* Internal spacing: 12px top/bottom, 30px left/right */
+  border-radius: 80px;       /* High value locks it into a round pill shape */
+  text-decoration: none;     /* Strips away the default underline */
+  font-weight: 700;          /* Bold typography weight */
+  font-size: 1.5rem;
+  transition: background 0.2s ease; /* Smooth hover effect */
+}
+
+.event-image{
+  flex: 1;                 /* Takes up an even share of space */
+  max-width: 35%;          /* Shrinks the width slightly so the poster isn't huge */
+  display: flex;
+  justify-content: flex-start; /* Forces the image to anchor tightly to the left side */
+  
+}
+
+.event-image img {
+  width: 100%;             /* Tells the image to fill the 35% box width */
+  height: auto;            /* Maintains original proportions so it doesn't look squished */
+  border-radius: 8px;      /* Optional: rounds the sharp poster corners slightly */
+  object-fit: contain;     /* Keeps the entire image cleanly visible inside its frame */
+}
