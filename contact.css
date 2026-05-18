@@ -1,3 +1,12 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #cfd78c; /* Matches your core signature sage background color */
+    overflow-x: hidden;
+}
+
 /* Contact page section styling (matched to Volunteer.css) */
 .contact-section {
     background-color: #cfd78c;
