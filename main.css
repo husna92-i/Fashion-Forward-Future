@@ -22,6 +22,7 @@ body {
   background: var(--offwhite);
   color: var(--dark);
   overflow-x: hidden;
+  padding-top: 68px; /* Pushes content below fixed navbar */
 }
 
 /* NAVBAR */
@@ -82,7 +83,7 @@ nav.scrolled {
 }
 
 .nav-links a:hover {
-  color: var(--black);
+  color: var(--dark);
 }
 
 .nav-icons {
@@ -106,7 +107,7 @@ nav.scrolled {
 
 .icon-btn:hover {
   background: rgba(255, 255, 255, 0.3);
-  color: var(--black);
+  color: var(--dark);
 }
 
 .icon-btn svg {
@@ -115,7 +116,7 @@ nav.scrolled {
 }
 
 .hamburger-btn {
-  display: flex;
+  display: none;
 }
 
 /* MOBILE NAV */
@@ -293,7 +294,7 @@ nav.scrolled {
   z-index: 20;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-start;
   padding: 0 5vw 5rem 5vw;
   pointer-events: none;
@@ -442,51 +443,6 @@ nav.scrolled {
   100% { left: 100%; }
 }
 
-/* RESPONSIVE HERO */
-@media (max-width: 768px) {
-  .hero {
-    height: auto;
-    min-height: 100vh;
-  }
-  
-  .hero-tile {
-    height: 50vh;
-  }
-  
-  .hero-content {
-    position: relative;
-    background: linear-gradient(135deg, var(--purple), var(--pink));
-    padding: 2rem 1.5rem 3rem;
-  }
-  
-  .hero-stats {
-    margin-top: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .stat {
-    min-width: 70px;
-  }
-  
-  .stat-num {
-    font-size: 1.3rem;
-  }
-  
-  .scroll-cue {
-    display: none;
-  }
-  
-  .hero-headline {
-    font-size: 2rem;
-  }
-  
-  .hero-sub {
-    font-size: 0.9rem;
-  }
-}
-
 /* WHAT WE DO SECTION */
 .what-we-do {
   padding: 5rem 0;
@@ -497,6 +453,8 @@ nav.scrolled {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-header {
@@ -545,7 +503,6 @@ nav.scrolled {
   box-shadow: 0 10px 30px rgba(249, 148, 192, 0.15);
 }
 
-/* CIRCLE IMAGES */
 .pillar-image {
   width: 180px;
   height: 180px;
@@ -591,11 +548,11 @@ nav.scrolled {
 .about-header {
   text-align: left;
   font-weight: bold;
-  margin-bottom: 3rem;
+  margin-bottom: 0rem;
 }
 
 .about-header h2 {
-  font-family: 'Sans source 4', serif;
+  font-family: 'Source Serif 4', serif;
   font-size: 2.5rem;
   color: var(--purple);
   margin-bottom: 1rem;
@@ -607,7 +564,6 @@ nav.scrolled {
   font-style: italic;
   color: #8e8888;
   max-width: 700px;
-  /* margin: 0 auto; - ni if nak buat dia center*/ 
   text-align: justify;
   text-justify: inter-word; 
 }
@@ -627,7 +583,6 @@ nav.scrolled {
   text-justify: inter-word; 
 }
 
-/* List of features (Inclusivity, Community, Advocacy, Youth power) */
 .about-features {
   list-style: none;
   padding: 0;
@@ -652,7 +607,6 @@ nav.scrolled {
   flex-wrap: wrap;
 }
 
-/* Overlapping circles */
 .overlap-circles {
   display: flex;
   margin: 0; 
@@ -684,7 +638,6 @@ nav.scrolled {
   z-index: 10;
 }
 
-/* Stat circle (50+ Active Volunteers) */
 .about-stats {
   margin: 0; 
 }
@@ -694,21 +647,6 @@ nav.scrolled {
   align-items: center;
   gap: 1rem;
 }
-
-/*.about-stat-circle {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--yellow);
-  backdrop-filter: blur(16px);
-  border-radius: 50%;
-  border: 1px solid var(--pink);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  flex-shrink: 0;
-} */
 
 .about-stat-circle:hover {
   transform: scale(1.05);
@@ -776,25 +714,16 @@ nav.scrolled {
   color: white;
   padding: 3rem 0 1rem;
   margin-top: 2rem;
-  font-family: 'Source sans 4', serif;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+  font-family: 'Source Sans 4', serif;
 }
 
 .footer-content {
-  display: flex; /*updated 16.5.26 */
-  justify-content: space-between; /*updated 16.5.26 */
-  align-items: center;
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-bottom: 2rem;
 }
 
-/* Footer Logo Section */
 .footer-logo h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
@@ -807,7 +736,6 @@ nav.scrolled {
   line-height: 1.5;
 }
 
-/* Quick Links Section */
 .footer-links h4 {
   font-size: 1rem;
   margin-bottom: 1rem;
@@ -836,23 +764,16 @@ nav.scrolled {
   transition: all 0.3s;
 }
 
-/* Social Media Section */
 .footer-social h4 {
+  font-style: italic;
   font-size: 1rem;
-  font-style:italic;
   margin-bottom: 1rem;
   color: var(--pink);
-}
-
-.footer-social {
-  margin-left:auto; /*updated 16.5.26 */
-  text-align: right !important;
 }
 
 .social-icons {
   display: flex;
   gap: 1rem;
-  justify-content: flex-end !important;
 }
 
 .social-icon {
@@ -881,10 +802,9 @@ nav.scrolled {
 
 .social-icon:hover img {
   transform: scale(1.1);
-  filter: brightness(0) invert(1); 
+  filter: brightness(0) invert(1);
 }
 
-/* Copyright Section */
 .footer-bottom {
   text-align: center;
   padding-top: 2rem;
@@ -893,10 +813,147 @@ nav.scrolled {
   opacity: 0.6;
 }
 
-/* Responsive Footer */
+
+/* RESPONSIVE DESIGN  */
+/* Tablet & Mobile (max-width: 992px) */
+@media (max-width: 992px) {
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile (max-width: 768px) */
 @media (max-width: 768px) {
+  /* Navigation */
+  .hamburger-btn {
+    display: flex;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  nav {
+    padding: 0 1rem;
+  }
+  
+  .icon-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .icon-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Hero Section */
+  .hero {
+    height: 100vh;
+    min-height: 500px;
+  }
+  
+  .hero-tile {
+    height: 100vh;
+  }
+  
+  .hero-tile img {
+    object-position: center;
+  }
+  
+  .hero-content {
+    position: absolute; 
+    background: transparent; 
+    padding: 0 1.5rem 2rem 1.5rem;
+    justify-content: flex-end;
+  }
+  
+  .hero-stats {
+    gap: 1rem;
+    padding: 0.6rem 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .stat {
+    min-width: 70px;
+  }
+  
+  .stat-num {
+    font-size: 1.2rem;
+  }
+  
+  .stat-label {
+    font-size: 0.5rem;
+  }
+  
+  .scroll-cue {
+    display: none;
+  }
+  
+  .hero-headline {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem; 
+  }
+  
+  .hero-sub {
+    font-size: 0.85rem;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .glass-btn {
+    padding: 0.4rem 1.2rem;
+    font-size: 0.6rem;
+  }
+  
+  .hero-eyebrow {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Grid Layouts */
+  .pillars-grid,
+  .about-content,
   .footer-content {
     grid-template-columns: 1fr;
+  }
+  
+  /* About Section */
+  .about-header h2,
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .about-header {
+    text-align: center;
+  }
+  
+  .about-header h2 {
+    text-align: center;
+  }
+  
+  .about-quote {
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .about-image {
+    height: 250px;
+  }
+  
+  .about-circles-row {
+    justify-content: center;
+  }
+  
+  /* Sections Padding */
+  .what-we-do,
+  .about-section {
+    padding: 3rem 0;
+  }
+  
+  /* Footer */
+  .footer-content {
     text-align: center;
     gap: 1.5rem;
   }
@@ -917,44 +974,35 @@ nav.scrolled {
   }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .hamburger-btn {
-    display: flex;
-  }
-  
-  .nav-links {
-    display: none;
-  }
-  
-  .pillars-grid,
-  .about-content
-  .footer-content {
-    grid-template-columns: 1fr;
-  }
-  
-  .about-header h2,
-  .section-header h2 {
-    font-size: 1.8rem;
-  }
-  .about-image {
-    height: 250px;
-  }
-  
-  .what-we-do,
-  .about-section
-  {
-    padding: 3rem 0;
-  }
-}
-
+/* Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
+  nav {
+    padding: 0 0.8rem;
+  }
+  
+  .logo-text span:first-child {
+    font-size: 1rem;
+  }
+  
+  .icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+  
   .hero-stats {
-    padding: 0.8rem 1rem;
+    padding: 0.6rem 1rem;
   }
   
   .stat {
-    min-width: 60px;
+    min-width: 55px;
+  }
+  
+  .stat-num {
+    font-size: 1rem;
+  }
+  
+  .stat-label {
+    font-size: 0.45rem;
   }
   
   .pillar-card {
@@ -966,6 +1014,18 @@ nav.scrolled {
   }
   
   .hero-sub {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+  }
+  
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .hero-content {
+    padding: 0 1rem 2rem 1rem;
   }
 }
