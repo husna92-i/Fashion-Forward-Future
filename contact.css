@@ -1,13 +1,13 @@
 /* Contact page section styling (matched to Volunteer.css) */
 .contact-section {
     background-color: #cfd78c;
-    min-height: 100vh;
     box-sizing: border-box;
-    padding: 80px 20px;
+    padding: 80px 0;
     font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 /* Master inner container keeping elements structured neatly */
@@ -17,6 +17,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 20px;
 }
 
 /* Typography alignment and spacing rules */
@@ -149,7 +150,11 @@
 /* Tablet Responsive Styles (768px and below) */
 @media (max-width: 768px) {
     .contact-section {
-        padding: 60px 15px;
+        padding: 60px 0;
+    }
+
+    .contact-container {
+        padding: 0 15px;
     }
 
     .contact-header {
@@ -189,12 +194,12 @@
 /* Mobile Responsive Styles (480px and below) */
 @media (max-width: 480px) {
     .contact-section {
-        padding: 40px 12px;
-        min-height: auto;
+        padding: 40px 0;
     }
 
     .contact-container {
         width: 100%;
+        padding: 0 12px;
     }
 
     .contact-header {
