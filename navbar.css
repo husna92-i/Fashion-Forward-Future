@@ -69,7 +69,7 @@ nav.scrolled {
 }
 
 .nav-links a:hover {
-  color: var(--black);
+  color: var(--dark);
 }
 
 .nav-icons {
@@ -93,7 +93,7 @@ nav.scrolled {
 
 .icon-btn:hover {
   background: rgba(255, 255, 255, 0.3);
-  color: var(--black);
+  color: var(--dark);
 }
 
 .icon-btn svg {
@@ -101,6 +101,7 @@ nav.scrolled {
   height: 18px;
 }
 
+/* Hamburger - hidden on desktop, visible on mobile */
 .hamburger-btn {
   display: flex;
 }
@@ -184,7 +185,6 @@ nav.scrolled {
   overflow: hidden;
 }
 
-
 .search-bar input {
   flex: 1;
   background: none;
@@ -233,4 +233,48 @@ nav.scrolled {
   color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   font-size: 1.4rem;
+}
+
+/* RESPONSIVE NAVBAR */
+@media (max-width: 768px) {
+  /* Show hamburger button on mobile */
+  .hamburger-btn {
+    display: flex;
+  }
+  
+
+  .nav-links {
+    display: none;
+  }
+  
+  
+  nav {
+    padding: 0 1rem;
+  }
+  
+  
+  .icon-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .icon-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    padding: 0 0.8rem;
+  }
+  
+  .logo-text span:first-child {
+    font-size: 1rem;
+  }
+  
+  .icon-btn {
+    width: 36px;
+    height: 36px;
+  }
 }
