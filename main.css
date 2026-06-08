@@ -116,7 +116,7 @@ nav.scrolled {
 }
 
 .hamburger-btn {
-  display: none;
+  display: flex;
 }
 
 /* MOBILE NAV */
