@@ -214,12 +214,14 @@ html, body {
     .contact-header {
         margin-bottom: 25px;
         padding: 0 10px;
+        max-width: 100%;
     }
 
     .contact-header h2 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         letter-spacing: 0;
         margin-bottom: 15px;
+        word-break: break-word;
     }
 
     .contact-header p {
