@@ -195,4 +195,95 @@ if (searchInput) {
   });
 }
 
+// =========================================================================
+// GOOGLE ANALYTICS EVENT TRACKING
+// =========================================================================
 
+// Helper function to safely track events
+function trackEvent(eventName, eventData = {}) {
+  if (window.logEvent && window.analytics) {
+    window.logEvent(window.analytics, eventName, eventData);
+  }
+}
+
+// Track volunteer sign-ups
+const volunteerBtns = document.querySelectorAll('.btn-primary, .glass-btn');
+volunteerBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    if (btn.getAttribute('href')?.includes('Volunteer')) {
+      trackEvent('volunteer_signup_click', {
+        source: btn.className,
+        text: btn.textContent.trim()
+      });
+    }
+  });
+});
+
+// Track navigation clicks
+const allNavLinks = document.querySelectorAll('.nav-links a, .mobile-nav a');
+allNavLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    const href = link.getAttribute('href');
+    trackEvent('navigation_click', {
+      destination: href,
+      from: 'navigation'
+    });
+  });
+});
+
+// Track gallery visits
+document.querySelectorAll('a[href*="Gallery"]').forEach(link => {
+  link.addEventListener('click', () => {
+    trackEvent('gallery_click', {
+      source: 'navigation'
+    });
+  });
+});
+
+// Track social media clicks
+document.querySelectorAll('.social-icon').forEach(link => {
+  link.addEventListener('click', () => {
+    const platform = link.querySelector('img')?.alt || 'unknown';
+    trackEvent('social_media_click', {
+      platform: platform
+    });
+  });
+});
+
+// Track search interactions
+if (searchInput) {
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      trackEvent('search_performed', {
+        search_term: searchInput.value
+      });
+    }
+  });
+}
+
+// Track search tag clicks
+document.querySelectorAll('.search-tag').forEach(tag => {
+  tag.addEventListener('click', () => {
+    trackEvent('search_tag_click', {
+      tag: tag.textContent
+    });
+  });
+});
+
+// Track section scrolling
+let trackedSections = new Set();
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('section[id]');
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    const sectionId = section.getAttribute('id');
+    
+    // Track when section comes into view (and hasn't been tracked yet)
+    if (rect.top < window.innerHeight && rect.bottom > 0 && !trackedSections.has(sectionId)) {
+      trackedSections.add(sectionId);
+      trackEvent('section_viewed', {
+        section: sectionId
+      });
+    }
+  });
+});
