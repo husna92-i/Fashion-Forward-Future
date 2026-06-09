@@ -103,7 +103,7 @@ nav.scrolled {
 
 /* Hamburger - hidden on desktop, visible on mobile */
 .hamburger-btn {
-  display: hidden;
+  display: none;
 }
 
 /* MOBILE NAV */
