@@ -9,7 +9,7 @@
   <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-analytics.js";
+  import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-analytics.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -28,6 +28,16 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+
+  // Log pageview
+  logEvent(analytics, 'page_view', {
+    page_path: window.location.pathname,
+    page_title: document.title
+  });
+
+  // Make analytics available globally for tracking user interactions
+  window.analytics = analytics;
+  window.logEvent = logEvent;
 </script>
 </head>
 <body>
@@ -171,9 +181,9 @@
     </div>
     <div class="about-content">
       <div class="about-text">
-        <p>Fashion Forward Future (FFF) is a youth-led movement in Malaysia dedicated to transforming the way we think about fashion. We believe that sustainable style should be accessible to everyone, and that young people have the power to lead the charge for a fairer, greener industry.</p>
+        <p>Fashion Forward Future (FFF) is a youth-led movement in Malaysia dedicated to transforming the way we think about fashion. We believe that sustainable style should be accessible to everyone[...]
         
-        <p>Through grassroots campaigns, community workshops, and strategic partnerships, we work hand-in-hand with B40 women to provide economic opportunities while championing environmental responsibility.</p>
+        <p>Through grassroots campaigns, community workshops, and strategic partnerships, we work hand-in-hand with B40 women to provide economic opportunities while championing environmental responsi[...]
         
         <!-- Features list -->
         <ul class="about-features">
